@@ -35,3 +35,31 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+
+# C#
+*.suo
+*.user
+*.datasource
+*.Publish.xml
+*.dotcover
+*.swo
+local.config
+
+obj
+bin
+Bin
+ClientBin
+GeneratedCode
+Service References
+WCFNHibernate
+*UnitOfWork*
+GenericTransaction
+_ReSharper*
+elearn.suo
+App_Readme
+Adminica
+packages
+DeployPackage
+deploy.cmd
+App_Data
