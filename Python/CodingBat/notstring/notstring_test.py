@@ -9,7 +9,7 @@ class NotStringTests(unittest.TestCase):
 
         actual = notstring.Do(input)
 
-        self.assertTrue(expected, actual)
+        self.assertEquals(expected, actual)
 
     def test_IfNot_return_not(self):
         expected = "not"
@@ -17,7 +17,7 @@ class NotStringTests(unittest.TestCase):
 
         actual = notstring.Do(input)
 
-        self.assertTrue(expected, actual)
+        self.assertEquals(expected, actual)
 
     def test_IfValue_return_withNotAtTheBeginning(self):
         input = "test"
@@ -25,7 +25,15 @@ class NotStringTests(unittest.TestCase):
 
         actual = notstring.Do(input)
 
-        self.assertTrue(expected, actual)
+        self.assertEquals(expected, actual)
+
+    def test_IfNotWithSpaces_Return_trimmed_not(self):
+        input = "    not"
+        expected = "not"
+
+        actual = notstring.Do(input)
+
+        self.assertEquals(expected, actual)
 
 if __name__ == "__main__":
     unittest.main()
