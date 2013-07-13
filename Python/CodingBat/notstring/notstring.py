@@ -1,5 +1,9 @@
 def Do(input):
-    if(input[:3] == "not"):
-        return input
     
-    return "not " + input
+    if len(input) == 0:
+        return 'not'
+    
+    if 'not' in input :
+        return input.lstrip()
+    
+    return "not " + input.lstrip()
