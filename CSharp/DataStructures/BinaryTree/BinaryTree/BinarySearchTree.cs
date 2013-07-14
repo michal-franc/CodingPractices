@@ -1,23 +1,32 @@
 ﻿namespace BinaryTree
 {
-
-    // Abbility to set Value directly on node
-    public class TreeNode
-    {
-        public int Value { get; private set; }
-
-        public TreeNode Left { get; set; }
-
-        public TreeNode Right { get; set; }
-
-        public TreeNode(int value)
-        {
-            this.Value = value;
-        }
-    }
-
     public class BinarySearchTree
     {
+        public BinarySearchTree()
+        {
+        }
+
+        public BinarySearchTree(int[] inputArray)
+        {
+            var middleValue = this.GetMiddleValue(inputArray);
+
+            this.TopNode = new TreeNode(middleValue);
+            
+            foreach (var val in inputArray)
+            {
+                if (val != middleValue)
+                {
+                    this.TopNode.PropagateValue(val); 
+                }
+            }
+        }
+
+        private int GetMiddleValue(int[] inputArray)
+        {
+            var length = inputArray.Length / 2;
+            return inputArray[length];
+        }
+
         public TreeNode TopNode { get; private set; }
 
         public void Add(int newValue)
@@ -28,14 +37,7 @@
             }
             else
             {
-                if(this.TopNode.Value >= newValue)
-                {
-                    this.TopNode.Left = new TreeNode(newValue);
-                }
-                else
-                {
-                    this.TopNode.Right = new TreeNode(newValue);
-                }
+                this.TopNode.PropagateValue(newValue);
             }
         }
     }
