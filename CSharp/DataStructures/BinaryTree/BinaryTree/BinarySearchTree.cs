@@ -1,4 +1,6 @@
-﻿namespace BinaryTree
+﻿using System;
+
+namespace BinaryTree
 {
     public class BinarySearchTree
     {
@@ -24,6 +26,9 @@
         private int GetMiddleValue(int[] inputArray)
         {
             var length = inputArray.Length / 2;
+            
+            Array.Sort(inputArray);
+
             return inputArray[length];
         }
 
@@ -39,6 +44,22 @@
             {
                 this.TopNode.PropagateValue(newValue);
             }
+        }
+
+        public TreeBreadth GetBreadth()
+        {
+            var breadth = new TreeBreadth
+                {
+                    Left = this.TopNode.GetBreadth(true, 0),
+                    Right = this.TopNode.GetBreadth(false, 0)
+                };
+
+            return breadth;
+        }
+
+        public string Draw()
+        {
+            return string.Format("{0}", this.TopNode.Value);
         }
     }
 }
