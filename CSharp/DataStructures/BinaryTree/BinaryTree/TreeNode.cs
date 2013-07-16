@@ -38,25 +38,5 @@ namespace BinaryTree
                 }
             }
         }
-
-        public int GetBreadth(bool left, int val)
-        {
-            if (left && this.Left != null)
-            {
-                return 1 + this.Left.GetBreadth(left, val);
-            }
-
-            if (!left && this.Right != null)
-            {
-                return 1 + this.Right.GetBreadth(left, val);
-            }
-
-            if (this.Left == null || this.Right == null)
-            {
-                return 0;
-            }
-
-            throw new NotSupportedException();
-        }
     }
 }

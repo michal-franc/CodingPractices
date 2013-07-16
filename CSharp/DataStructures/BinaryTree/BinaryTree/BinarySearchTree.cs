@@ -50,11 +50,20 @@ namespace BinaryTree
         {
             var breadth = new TreeBreadth
                 {
-                    Left = this.TopNode.GetBreadth(true, 0),
-                    Right = this.TopNode.GetBreadth(false, 0)
+                    Left = this.GetBreadth(this.TopNode.Left, true),
+                    Right = this.GetBreadth(this.TopNode.Right, false) 
                 };
 
             return breadth;
+        }
+
+        private int GetBreadth(TreeNode node, bool checkLeft)
+        {
+            if (node == null) return 0;
+
+            var nextnode = checkLeft ? node.Left : node.Right; 
+
+            return 1 + this.GetBreadth(nextnode, checkLeft);
         }
 
         public int GetHeight()
