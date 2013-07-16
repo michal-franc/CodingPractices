@@ -142,6 +142,87 @@ namespace BinaryTreeTests
             }
         }
 
+        public class GetHeightMethodTests
+        {
+            
+            [Fact]
+            public void HeightForSingleElement_Equals_1()
+            {
+                var expectedHeight = 1; 
+                var bst = new BinarySearchTree(new[] { 5 });
+
+                var actualHeight = bst.GetHeight();
+
+                Assert.Equal(expectedHeight, actualHeight);
+            }
+            
+            [Fact]
+            public void HeightFor_BalancedTree_OneLevel()
+            {
+                var expectedHeight = 2; 
+                var bst = new BinarySearchTree();
+
+                bst.Add(5);
+                bst.Add(1);
+                bst.Add(6);
+
+                var actualHeight = bst.GetHeight();
+
+                Assert.Equal(expectedHeight, actualHeight);
+            }
+            
+            [Fact]
+            public void HeightFor_BalancedTree_TwoLevels()
+            {
+                var expectedHeight = 3; 
+                var bst = new BinarySearchTree();
+
+                bst.Add(5);
+                bst.Add(2);
+                bst.Add(1);
+                bst.Add(3);
+                bst.Add(7);
+                bst.Add(6);
+                bst.Add(8);
+
+                var actualHeight = bst.GetHeight();
+
+                Assert.Equal(expectedHeight, actualHeight);
+            }
+
+            [Fact]
+            public void HeightFor_UnBalancedTree_OnlyRight()
+            {
+                var expectedHeight = 3; 
+                var bst = new BinarySearchTree();
+
+                bst.Add(5);
+                bst.Add(7);
+                bst.Add(6);
+                bst.Add(8);
+
+                var actualHeight = bst.GetHeight();
+
+                Assert.Equal(expectedHeight, actualHeight);
+            }
+
+            [Fact]
+            public void HeightFor_UnBalancedTree_OnlyLeft()
+            {
+                var expectedHeight = 3; 
+                var bst = new BinarySearchTree();
+
+                bst.Add(5);
+                bst.Add(2);
+                bst.Add(1);
+                bst.Add(3);
+
+                var actualHeight = bst.GetHeight();
+
+                Assert.Equal(expectedHeight, actualHeight);
+            }
+        }
+
         public class DrawMethodTests
         {
             [Fact]
