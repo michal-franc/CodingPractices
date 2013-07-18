@@ -222,34 +222,5 @@ namespace BinaryTreeTests
                 Assert.Equal(expectedHeight, actualHeight);
             }
         }
-
-        public class DrawMethodTests
-        {
-            [Fact]
-            public void Single_TopNode()
-            {
-                var inputArray = new[] { 5 };
-                var bst = new BinarySearchTree(inputArray);
-                var expectedString =
-                    "5";
-
-                var actualString = bst.Draw();
-
-                Assert.Equal(expectedString, actualString);
-            }
-            [Fact]
-            public void DrawTest()
-            {
-                var inputArray = new[] {1, 5, 2};
-                var bst = new BinarySearchTree(inputArray);
-                var expectedString =
-                    " 5 " +
-                    "1-2";
-
-                var actualString = bst.Draw();
-
-                Assert.Equal(expectedString, actualString);
-            }
-        }
     }
 }

@@ -77,10 +77,5 @@ namespace BinaryTree
 
             return 1 + Math.Max(this.GetHeight(node.Left), this.GetHeight(node.Right));
         }
-
-        public string Draw()
-        {
-            return string.Format("{0}", this.TopNode.Value);
-        }
     }
 }
