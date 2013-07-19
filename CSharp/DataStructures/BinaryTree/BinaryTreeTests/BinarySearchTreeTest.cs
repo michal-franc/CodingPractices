@@ -6,6 +6,34 @@ namespace BinaryTreeTests
     public class BinarySearchTreeTest
     {
         [Fact]
+        public void GetMinMethod_BalancedTree()
+        {
+            var min = 11;
+            var inputArray = new[] { 100, 105, 96, 86, 75, min, 86, 190, 666 };
+
+            var bst = new BinarySearchTree(inputArray);
+
+            var actualMin = bst.GetMin();
+
+            Assert.Equal(actualMin, min);
+ 
+        }
+
+        [Fact]
+        public void GetMaxMethod_BalancedTree()
+        {
+            var max = 999; 
+            var inputArray = new[] { 100, 105, 96, 86, 75, max, 86, 190, 666 };
+
+            var bst = new BinarySearchTree(inputArray);
+
+            var actualMax = bst.GetMax();
+
+            Assert.Equal(actualMax, max);
+ 
+        }
+
+        [Fact]
         public void CtorCanTakeArray_AndProduces_Tree_SortedArray()
         {
             var inputArray = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };

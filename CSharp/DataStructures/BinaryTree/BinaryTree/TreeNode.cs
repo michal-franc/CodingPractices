@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BinaryTree
+﻿namespace BinaryTree
 {
     public class TreeNode
     {

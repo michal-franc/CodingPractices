@@ -77,5 +77,29 @@ namespace BinaryTree
 
             return 1 + Math.Max(this.GetHeight(node.Left), this.GetHeight(node.Right));
         }
+
+        public int GetMin()
+        {
+            return this.GetMin(this.TopNode);
+        }
+
+        private int GetMin(TreeNode node)
+        {
+            if (node.Left == null) return node.Value;
+
+            return this.GetMin(node.Left);
+        }
+
+        public int GetMax()
+        {
+            return this.GetMax(this.TopNode);
+        }
+
+        private int GetMax(TreeNode node)
+        {
+            if (node.Right == null) return node.Value;
+
+            return this.GetMax(node.Right);
+        }
     }
 }
