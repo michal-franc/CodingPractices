@@ -18,7 +18,7 @@ namespace BinaryTree
             {
                 if (val != middleValue)
                 {
-                    this.TopNode.PropagateValue(val); 
+                    this.Add(val); 
                 }
             }
         }
@@ -34,15 +34,38 @@ namespace BinaryTree
 
         public TreeNode TopNode { get; private set; }
 
-        public void Add(int newValue)
+        public void Add(int val)
         {
-            if (TopNode == null)
+            if (this.TopNode == null)
             {
-                this.TopNode = new TreeNode(newValue);
+                this.TopNode = new TreeNode(val);
+                return;
+            }
+                
+            this.Add(this.TopNode, val);
+        }
+
+        private void Add(TreeNode node, int val)
+        {
+            if (val <= node.Value)
+            {
+                if (node.Left == null)
+                {
+                    node.Left = new TreeNode(val);
+                    return;
+                }
+
+                this.Add(node.Left, val);
             }
             else
             {
-                this.TopNode.PropagateValue(newValue);
+                if (node.Right == null)
+                {
+                    node.Right = new TreeNode(val);
+                    return;
+                }
+
+                this.Add(node.Right, val);
             }
         }
 

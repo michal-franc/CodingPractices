@@ -5,6 +5,13 @@ namespace BinaryTreeTests
 {
     public class BinarySearchTreeTest
     {
+
+        [Fact]
+        public void SearchMethod_()
+        {
+            
+        }
+
         [Fact]
         public void GetMinMethod_BalancedTree()
         {

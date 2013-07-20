@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="BinarySearchTreeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TreeNodeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
