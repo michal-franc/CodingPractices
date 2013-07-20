@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace BinaryTree
 {
@@ -147,6 +149,19 @@ namespace BinaryTree
         public TreeNode LowestCommonAncestor(int nodeValue1, int nodeValue2)
         {
             return this.LowestCommonAncestor(this.TopNode, nodeValue1, nodeValue2);
+        }
+
+        public int[] ToSortedArray()
+        {
+            var collection = new Collection<int>();
+
+            this.Traverse(node => collection.Add(node.Value), new InOrderTraverse());
+
+            var array = collection.ToArray();
+ 
+            Array.Sort(array);
+
+            return array;
         }
 
         private TreeNode LowestCommonAncestor(TreeNode node, int value1, int value2)

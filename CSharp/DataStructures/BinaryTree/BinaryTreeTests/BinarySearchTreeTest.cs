@@ -7,6 +7,18 @@ namespace BinaryTreeTests
     public class BinarySearchTreeTest
     {
         [Fact]
+        public void ToArray()
+        {
+            var inputArray = new[] { 20, 8, 22, 4, 12, 10, 14 };
+            var expectedArray = new [] { 4, 8, 10, 12, 14, 20, 22};
+
+            var bst = new BinarySearchTree(inputArray);
+            var actualArray = bst.ToSortedArray();
+
+            Assert.Equal(actualArray, expectedArray);
+        }
+
+        [Fact]
         public void LowestCommonAncestor()
         {
             var expectedAncestorValue = 8;
