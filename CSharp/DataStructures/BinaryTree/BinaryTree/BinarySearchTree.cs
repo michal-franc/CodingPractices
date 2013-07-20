@@ -143,5 +143,30 @@ namespace BinaryTree
         {
             traverseAlgorithm.Traverse(this.TopNode, action);
         }
+
+        public TreeNode LowestCommonAncestor(int nodeValue1, int nodeValue2)
+        {
+            return this.LowestCommonAncestor(this.TopNode, nodeValue1, nodeValue2);
+        }
+
+        private TreeNode LowestCommonAncestor(TreeNode node, int value1, int value2)
+        {
+            while (node != null)
+            {
+                if (node.Value > value1 && node.Value > value2)
+                {
+                    node = node.Left;
+                }
+                else if (node.Value < value1 && node.Value < value2)
+                {
+                    node = node.Right;
+                }
+                else
+                {
+                    return node;
+                }
+            }
+            return null;
+         }
     }
 }

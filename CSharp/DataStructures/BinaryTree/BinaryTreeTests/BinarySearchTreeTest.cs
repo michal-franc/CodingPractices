@@ -6,6 +6,31 @@ namespace BinaryTreeTests
 {
     public class BinarySearchTreeTest
     {
+        [Fact]
+        public void LowestCommonAncestor()
+        {
+            var expectedAncestorValue = 8;
+            var inputArray = new[] { 20, 8, 22, 4, 12, 10, 14 };
+
+            var bst = new BinarySearchTree();
+
+            foreach (var i in inputArray)
+            {
+                bst.Add(i);                
+            }
+
+            var actualAncestor = bst.LowestCommonAncestor(4, 12);
+
+            Assert.Equal(expectedAncestorValue, actualAncestor.Value);
+
+            actualAncestor = bst.LowestCommonAncestor(10, 14);
+
+            Assert.Equal(12, actualAncestor.Value);
+
+            actualAncestor = bst.LowestCommonAncestor(4, 10);
+
+            Assert.Equal(8, actualAncestor.Value);
+        }
 
         [Fact]
         public void TraverseMethod()
