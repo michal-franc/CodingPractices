@@ -42,7 +42,7 @@ namespace BinaryTreeTests
 
             var bst = new BinarySearchTree(inputArray);
 
-            var actualMin = bst.GetMin();
+            var actualMin = bst.Min;
 
             Assert.Equal(actualMin, min);
  
@@ -56,7 +56,7 @@ namespace BinaryTreeTests
 
             var bst = new BinarySearchTree(inputArray);
 
-            var actualMax = bst.GetMax();
+            var actualMax = bst.Max;
 
             Assert.Equal(actualMax, max);
  
@@ -110,7 +110,7 @@ namespace BinaryTreeTests
                 var expectedBreadth = new TreeBreadth { Left = 0, Right = 0};
                 var bst = new BinarySearchTree(new[] { 5 });
 
-                var actualBreadth = bst.GetBreadth();
+                var actualBreadth = bst.Breadth;
 
                 Assert.Equal(expectedBreadth, actualBreadth);
             }
@@ -125,7 +125,7 @@ namespace BinaryTreeTests
                 bst.Add(1);
                 bst.Add(6);
 
-                var actualBreadth = bst.GetBreadth();
+                var actualBreadth = bst.Breadth;
 
                 Assert.Equal(expectedBreadth, actualBreadth);
             }
@@ -144,7 +144,7 @@ namespace BinaryTreeTests
                 bst.Add(6);
                 bst.Add(8);
 
-                var actualBreadth = bst.GetBreadth();
+                var actualBreadth = bst.Breadth;
 
                 Assert.Equal(expectedBreadth, actualBreadth);
             }
@@ -160,7 +160,7 @@ namespace BinaryTreeTests
                 bst.Add(6);
                 bst.Add(8);
 
-                var actualBreadth = bst.GetBreadth();
+                var actualBreadth = bst.Breadth;
 
                 Assert.Equal(expectedBreadth, actualBreadth);
             }
@@ -176,7 +176,7 @@ namespace BinaryTreeTests
                 bst.Add(1);
                 bst.Add(3);
 
-                var actualBreadth = bst.GetBreadth();
+                var actualBreadth = bst.Breadth;
 
                 Assert.Equal(expectedBreadth, actualBreadth);
             }
@@ -193,7 +193,7 @@ namespace BinaryTreeTests
                 bst.Add(8);
                 bst.Add(2);
 
-                var actualBreadth = bst.GetBreadth();
+                var actualBreadth = bst.Breadth;
 
                 Assert.Equal(expectedBreadth, actualBreadth);
             }
@@ -208,7 +208,7 @@ namespace BinaryTreeTests
                 var expectedHeight = 1; 
                 var bst = new BinarySearchTree(new[] { 5 });
 
-                var actualHeight = bst.GetHeight();
+                var actualHeight = bst.Height;
 
                 Assert.Equal(expectedHeight, actualHeight);
             }
@@ -223,7 +223,7 @@ namespace BinaryTreeTests
                 bst.Add(1);
                 bst.Add(6);
 
-                var actualHeight = bst.GetHeight();
+                var actualHeight = bst.Height;
 
                 Assert.Equal(expectedHeight, actualHeight);
             }
@@ -242,7 +242,7 @@ namespace BinaryTreeTests
                 bst.Add(6);
                 bst.Add(8);
 
-                var actualHeight = bst.GetHeight();
+                var actualHeight = bst.Height;
 
                 Assert.Equal(expectedHeight, actualHeight);
             }
@@ -258,7 +258,7 @@ namespace BinaryTreeTests
                 bst.Add(6);
                 bst.Add(8);
 
-                var actualHeight = bst.GetHeight();
+                var actualHeight = bst.Height;
 
                 Assert.Equal(expectedHeight, actualHeight);
             }
@@ -274,7 +274,7 @@ namespace BinaryTreeTests
                 bst.Add(1);
                 bst.Add(3);
 
-                var actualHeight = bst.GetHeight();
+                var actualHeight = bst.Height;
 
                 Assert.Equal(expectedHeight, actualHeight);
             }

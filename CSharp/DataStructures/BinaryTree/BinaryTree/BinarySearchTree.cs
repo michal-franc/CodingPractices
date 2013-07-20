@@ -8,6 +8,33 @@ namespace BinaryTree
         {
         }
 
+        public int Height
+        {
+            get { return this.GetHeight(this.TopNode); }
+        }
+
+        public int Min
+        {
+            get { return this.GetMin(this.TopNode); }
+        }
+
+        public int Max
+        {
+            get { return this.GetMax(this.TopNode); }
+        }        public TreeBreadth Breadth
+        {
+            get
+            {
+                var breadth = new TreeBreadth
+                    {
+                        Left = this.GetBreadth(this.TopNode.Left, true),
+                        Right = this.GetBreadth(this.TopNode.Right, false)
+                    };
+
+                return breadth;
+            }
+        }
+
         public BinarySearchTree(int[] inputArray)
         {
             var middleValue = this.GetMiddleValue(inputArray);
@@ -23,15 +50,6 @@ namespace BinaryTree
             }
         }
 
-        private int GetMiddleValue(int[] inputArray)
-        {
-            var length = inputArray.Length / 2;
-            
-            Array.Sort(inputArray);
-
-            return inputArray[length];
-        }
-
         public TreeNode TopNode { get; private set; }
 
         public void Add(int val)
@@ -41,8 +59,17 @@ namespace BinaryTree
                 this.TopNode = new TreeNode(val);
                 return;
             }
-                
+
             this.Add(this.TopNode, val);
+        }
+
+        private int GetMiddleValue(int[] inputArray)
+        {
+            var length = inputArray.Length / 2;
+            
+            Array.Sort(inputArray);
+
+            return inputArray[length];
         }
 
         private void Add(TreeNode node, int val)
@@ -69,17 +96,6 @@ namespace BinaryTree
             }
         }
 
-        public TreeBreadth GetBreadth()
-        {
-            var breadth = new TreeBreadth
-                {
-                    Left = this.GetBreadth(this.TopNode.Left, true),
-                    Right = this.GetBreadth(this.TopNode.Right, false) 
-                };
-
-            return breadth;
-        }
-
         private int GetBreadth(TreeNode node, bool checkLeft)
         {
             if (node == null) return 0;
@@ -89,11 +105,6 @@ namespace BinaryTree
             return 1 + this.GetBreadth(nextnode, checkLeft);
         }
 
-        public int GetHeight()
-        {
-            return this.GetHeight(this.TopNode);
-        }
-
         private int GetHeight(TreeNode node)
         {
             if (node == null) return 0;
@@ -101,21 +112,12 @@ namespace BinaryTree
             return 1 + Math.Max(this.GetHeight(node.Left), this.GetHeight(node.Right));
         }
 
-        public int GetMin()
-        {
-            return this.GetMin(this.TopNode);
-        }
 
         private int GetMin(TreeNode node)
         {
             if (node.Left == null) return node.Value;
 
             return this.GetMin(node.Left);
-        }
-
-        public int GetMax()
-        {
-            return this.GetMax(this.TopNode);
         }
 
         private int GetMax(TreeNode node)
