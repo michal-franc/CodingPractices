@@ -136,5 +136,10 @@ namespace BinaryTree
             else if (val < node.Value) return this.Search(node.Left, val);
             else return this.Search(node.Right, val);
         }
+
+        public void Traverse(Action<TreeNode> action, ITraverseAlgorithm traverseAlgorithm)
+        {
+            traverseAlgorithm.Traverse(this.TopNode, action);
+        }
     }
 }

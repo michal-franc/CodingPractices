@@ -1,10 +1,25 @@
-﻿using BinaryTree;
+﻿using System;
+using BinaryTree;
 using Xunit;
 
 namespace BinaryTreeTests
 {
     public class BinarySearchTreeTest
     {
+
+        [Fact]
+        public void TraverseMethod()
+        {
+            var action = new Action<TreeNode>(node => Console.WriteLine(node.Value));
+ 
+            var inputArray = new[] { 100, 105, 96, 86, 75, 101, 86, 190, 666 };
+
+            var bst = new BinarySearchTree(inputArray);
+
+            bst.Traverse(action, new InOrderTraverse());
+            bst.Traverse(action, new PostOrderTraverse());
+            bst.Traverse(action, new PreOrderTraverse());
+        }
 
         [Fact]
         public void SearchMethod()
@@ -17,7 +32,6 @@ namespace BinaryTreeTests
             var actualNode = bst.Search(101);
 
             Assert.Equal(actualNode.Value, toSearchVal);
- 
         }
 
         [Fact]
