@@ -47,6 +47,22 @@ namespace BinaryTreeTests
         }
 
         [Fact]
+        public void Traverse_WithCount()
+        {
+            var counter = 0;
+            var action = new Action<TreeNode>(node => counter++ );
+
+            var inputArray = new[] { 100, 105, 96, 86, 75, 101, 86, 190, 666 };
+
+            var bst = new BinarySearchTree(inputArray);
+
+            bst.Traverse(action, new InOrderTraverse());
+
+            Assert.Equal(9, counter);
+
+        }
+
+        [Fact]
         public void SearchMethod()
         {
             var toSearchVal = 101; 
