@@ -7,9 +7,17 @@ namespace BinaryTreeTests
     {
 
         [Fact]
-        public void SearchMethod_()
+        public void SearchMethod()
         {
-            
+            var toSearchVal = 101; 
+            var inputArray = new[] { 100, 105, 96, 86, 75, toSearchVal, 86, 190, 666 };
+
+            var bst = new BinarySearchTree(inputArray);
+
+            var actualNode = bst.Search(101);
+
+            Assert.Equal(actualNode.Value, toSearchVal);
+ 
         }
 
         [Fact]

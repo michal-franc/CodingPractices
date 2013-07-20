@@ -124,5 +124,17 @@ namespace BinaryTree
 
             return this.GetMax(node.Right);
         }
+
+        public TreeNode Search(int val)
+        {
+            return this.Search(this.TopNode, val);
+        }
+
+        private TreeNode Search(TreeNode node, int val)
+        {
+            if (val == node.Value) return node;
+            else if (val < node.Value) return this.Search(node.Left, val);
+            else return this.Search(node.Right, val);
+        }
     }
 }
