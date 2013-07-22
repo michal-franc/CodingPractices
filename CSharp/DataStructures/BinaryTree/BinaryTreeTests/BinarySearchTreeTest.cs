@@ -7,6 +7,31 @@ namespace BinaryTreeTests
     public class BinarySearchTreeTest
     {
         [Fact]
+        public void RotateRight()
+        {
+            var unbalancedTreeInput = new[] { 6, 7, 4, 5, 2, 1, 3 };
+
+            var bst = new BinarySearchTree();
+
+            foreach (var i in unbalancedTreeInput)
+            {
+                bst.Add(i);                
+            }
+
+            bst.RotateRight();
+
+            Assert.Equal(4, bst.TopNode.Value);
+
+            Assert.Equal(2, bst.TopNode.Left.Value);
+            Assert.Equal(1, bst.TopNode.Left.Left.Value);
+            Assert.Equal(3, bst.TopNode.Left.Right.Value);
+
+            Assert.Equal(6, bst.TopNode.Right.Value);
+            Assert.Equal(5, bst.TopNode.Right.Left.Value);
+            Assert.Equal(7, bst.TopNode.Right.Right.Value);
+        }
+
+        [Fact]
         public void ToArray()
         {
             var inputArray = new[] { 20, 8, 22, 4, 12, 10, 14 };

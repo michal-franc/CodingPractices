@@ -183,5 +183,16 @@ namespace BinaryTree
             }
             return null;
          }
+
+        public void RotateRight()
+        {
+            var oldRoot = this.TopNode;
+            var newRoot = this.TopNode.Left;
+
+            oldRoot.Left = newRoot.Right;
+
+            this.TopNode = newRoot;
+            this.TopNode.Right = oldRoot;
+        }
     }
 }
