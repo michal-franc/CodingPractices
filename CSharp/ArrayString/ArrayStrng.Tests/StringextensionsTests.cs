@@ -29,7 +29,16 @@ namespace ArrayStrng.Tests
             {
                 var inputString = "Test Of a string";
 
-                Assert.Equal(inputString, inputString.RemoveCharacters("z"));
+                Assert.Equal(inputString, inputString.RemoveCharacters("zxypwq"));
+            }
+
+            [Fact]
+            public void IfStringWithSpecifiedChars_ThenReturnStringWithDeletedChars()
+            {
+                var inputString = "Test Of a string";
+                var expectedString = "Tet f a trng";
+
+                Assert.Equal(expectedString, inputString.RemoveCharacters("sOi"));
             }
         }
 

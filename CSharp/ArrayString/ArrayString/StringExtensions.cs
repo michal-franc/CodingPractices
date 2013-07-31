@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace ArrayString
 {
@@ -11,12 +13,21 @@ namespace ArrayString
 
             if (chars.Length <= 0) return inputString;
 
-            foreach (var c in chars)
+            var charsToRemove = new HashSet<char>();
+
+            chars.All(x => charsToRemove.Add(x));
+
+            var outputString = new StringBuilder();
+
+            foreach (var c in inputString)
             {
-                
+                if (!charsToRemove.Contains(c))
+                {
+                    outputString.Append(c);
+                }
             }
 
-            throw new NotImplementedException();
+            return outputString.ToString();
         }
 
         public static char? FirstNonRepeatedChar(this string val)
