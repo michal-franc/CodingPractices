@@ -1,9 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ArrayString
 {
     public static class StringExtensions
     {
+        public static string RemoveCharacters(this string inputString, string chars)
+        {
+            if (string.IsNullOrWhiteSpace(inputString)) return inputString;
+
+            if (chars.Length <= 0) return inputString;
+
+            foreach (var c in chars)
+            {
+                
+            }
+
+            throw new NotImplementedException();
+        }
+
         public static char? FirstNonRepeatedChar(this string val)
         {
             if (string.IsNullOrWhiteSpace(val)) return null;

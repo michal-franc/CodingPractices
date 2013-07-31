@@ -6,6 +6,33 @@ namespace ArrayStrng.Tests
 {
     public class StringextensionsTests
     {
+        public class RemoveCharactersMethod
+        {
+            [Theory]
+            [InlineData("")]
+            [InlineData(" ")]
+            public void WhenStringEmptyWhite_ReturnOriginalString(string val)
+            {
+                Assert.Equal(val, val.RemoveCharacters("a")); 
+            }
+            
+            [Fact]
+            public void IfStringWithCharsIsEmpty_ReturnOriginalString()
+            {
+                var inputString = "Test Of a string";
+
+                Assert.Equal(inputString, inputString.RemoveCharacters(string.Empty));
+            }
+
+            [Fact]
+            public void IfStringWithoutSpecifiedChars_ReturnOriginalString()
+            {
+                var inputString = "Test Of a string";
+
+                Assert.Equal(inputString, inputString.RemoveCharacters("z"));
+            }
+        }
+
         public class FirstNonRepeatedCharacterMethod
         {
             [Theory]
