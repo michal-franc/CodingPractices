@@ -12,11 +12,11 @@ namespace ArrayString
 
             if (val.Length <= 1) return val[0];
 
-            var countDictionary = CountChars(val);
+            var uniquesDictionary = GetUniquesCollectionChars(val);
 
-            foreach (var keyValue in countDictionary)
+            foreach (var keyValue in uniquesDictionary)
             {
-                if (keyValue.Value <= 1)
+                if (keyValue.Value)
                 {
                     return keyValue.Key;
                 }
@@ -25,20 +25,20 @@ namespace ArrayString
             return null;
         }
 
-        private static Dictionary<char, int> CountChars(string val)
+        private static Dictionary<char, bool> GetUniquesCollectionChars(string val)
         {
-            var countDictionary = new Dictionary<char, int>();
+            var countDictionary = new Dictionary<char, bool>();
             foreach (var c in val)
             {
                 if (c == ' ') continue;
 
                 if (!countDictionary.ContainsKey(c))
                 {
-                    countDictionary.Add(c, 1);
+                    countDictionary.Add(c, true);
                 }
                 else
                 {
-                    countDictionary[c]++;
+                    countDictionary[c] = false;
                 }
             }
 
